@@ -15,8 +15,8 @@ public class SnakeAndLadderGUI extends JFrame {
 	private JLabel soundIconLabel;
 	private JLabel themeIconLabel;
 
-	private JPanel controlPanel; // <-- added
-	private JPanel soundThemePanel; // <-- added
+	private JPanel controlPanel;
+	private JPanel soundThemePanel;
 
 	public SnakeAndLadderGUI() {
 		setTitle("Snake and Ladder Game");
@@ -64,12 +64,12 @@ public class SnakeAndLadderGUI extends JFrame {
 			statusLabel.setText("Player " + (game.getCurrentPlayer() + 1) + "'s Turn");
 		});
 
-		controlPanel = new JPanel(new GridLayout(1, 3)); // <-- assign to field
+		controlPanel = new JPanel(new GridLayout(1, 3));
 		controlPanel.add(statusLabel);
 		controlPanel.add(diceLabel);
 		controlPanel.add(rollDiceButton);
 
-		soundThemePanel = new JPanel(new GridLayout(2, 1, 10, 10)); // <-- assign to field
+		soundThemePanel = new JPanel(new GridLayout(2, 1, 10, 10));
 		soundThemePanel.setPreferredSize(new Dimension(100, 600));
 
 		soundIconLabel = new JLabel("🔊", SwingConstants.CENTER);
@@ -210,7 +210,7 @@ public class SnakeAndLadderGUI extends JFrame {
 			if (currentStep[0] > steps) {
 				timer.stop();
 				themeIconLabel.setText(isDarkMode ? "🌙" : "🌞");
-				updateBoard(); // To re-render player colors (P1/P2)
+				updateBoard();
 			}
 		});
 
