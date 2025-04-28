@@ -1,6 +1,13 @@
 public interface IGame {
-    void playTurn();
-    int getCurrentPlayer();
-    int getLastRoll();
-    int[] getPlayerPositions();
+	void playTurn();
+
+	int getCurrentPlayer();
+
+	boolean isSnakeEncountered();
+
+	boolean isLadderEncountered();
+
+	int getLastRoll();
+
+	int[] getPlayerPositions();
 }
