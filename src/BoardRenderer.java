@@ -2,13 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
 
-public class DrawPanel extends JPanel {
-	private final Map<Integer, Integer> snakes;
-	private final Map<Integer, Integer> ladders;
+public class BoardRenderer extends JPanel {
+	private final IBoardModel boardModel;
 
-	public DrawPanel(Map<Integer, Integer> snakes, Map<Integer, Integer> ladders) {
-		this.snakes = snakes;
-		this.ladders = ladders;
+	public BoardRenderer(IBoardModel boardModel) {
+		this.boardModel = boardModel;
 		setOpaque(false);
 		setBounds(0, 0, 600, 600);
 	}
@@ -18,12 +16,12 @@ public class DrawPanel extends JPanel {
 		super.paintComponent(g);
 
 		g.setColor(Color.RED);
-		for (Map.Entry<Integer, Integer> s : snakes.entrySet()) {
+		for (Map.Entry<Integer, Integer> s : boardModel.getSnakes().entrySet()) {
 			drawArrow(g, getCellCenter(s.getKey()), getCellCenter(s.getValue()));
 		}
 
 		g.setColor(Color.GREEN.darker());
-		for (Map.Entry<Integer, Integer> l : ladders.entrySet()) {
+		for (Map.Entry<Integer, Integer> l : boardModel.getLadders().entrySet()) {
 			drawArrow(g, getCellCenter(l.getKey()), getCellCenter(l.getValue()));
 		}
 	}

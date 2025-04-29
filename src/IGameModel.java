@@ -1,4 +1,4 @@
-public interface IGame {
+public interface IGameModel {
 	void playTurn();
 
 	int getCurrentPlayer();
@@ -10,4 +10,6 @@ public interface IGame {
 	int getLastRoll();
 
 	int[] getPlayerPositions();
+
+	boolean checkWinner(int playerIndex);
 }
