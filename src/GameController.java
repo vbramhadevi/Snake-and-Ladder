@@ -51,7 +51,7 @@ public class GameController implements IGameController {
 			gameView.showMessage("Player " + (currentPlayer + 1) + " climbed a ladder!");
 			gameView.animateCell(boardView.getCell(newPosition), Color.GREEN);
 			if (isSoundOn) {
-				SoundPlayer.playSound("/snake.wav");
+				SoundPlayer.playSound("/ladder.wav");
 			}
 		}
 
