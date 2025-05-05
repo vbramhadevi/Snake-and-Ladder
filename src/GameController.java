@@ -6,13 +6,15 @@ public class GameController implements IGameController {
 	private IGameModel gameModel;
 	private IGameView gameView;
 	private IBoardView boardView;
+	private IBoardModel boardModel;
 	private boolean isSoundOn;
 
-	public GameController(IGameModel gameModel, IGameView gameView, IBoardView boardView) {
-		this.gameModel = gameModel;
-		this.gameView = gameView;
-		this.boardView = boardView;
-		this.isSoundOn = true;
+	public GameController(IGameModel gameModel, IGameView gameView, IBoardView boardView, IBoardModel boardModel) {
+	    this.gameModel = gameModel;
+	    this.gameView = gameView;
+	    this.boardView = boardView;
+	    this.boardModel = boardModel;
+	    this.isSoundOn = true;
 	}
 
 	@Override
@@ -80,6 +82,39 @@ public class GameController implements IGameController {
 		gameView.updateTheme(!gameView.isDarkMode());
 		appendHistory("Theme switched to " + (gameView.isDarkMode() ? "dark" : "light") + " mode");
 	}
+	
+	@Override
+	public void restartGame() {
+	    gameModel.reset();
+	    int[] playerPositions = gameModel.getPlayerPositions();
+	    boardView.updateBoard(playerPositions);
+	    gameView.updatePlayerPositions(playerPositions);
+	    gameView.updateDice(0);
+	    gameView.updateStatus("Player 1's Turn");
+	    gameView.enableRollButton(true);
+	    if (gameView instanceof GameView) {
+	        JTextArea historyTextArea = ((GameView) gameView).getHistoryTextArea();
+	        historyTextArea.setText("");
+	        historyTextArea.append("Game restarted\n");
+	    }
+	}
+
+	@Override
+	public void newGame() {
+		 // Reinitialize game model
+		gameModel = new GameModel(boardModel);
+	    int[] playerPositions = gameModel.getPlayerPositions();
+	    boardView.updateBoard(playerPositions);
+	    gameView.updatePlayerPositions(playerPositions);
+	    gameView.updateDice(0);
+	    gameView.updateStatus("Player 1's Turn");
+	    gameView.enableRollButton(true);
+	    if (gameView instanceof GameView) {
+	        JTextArea historyTextArea = ((GameView) gameView).getHistoryTextArea();
+	        historyTextArea.setText("");
+	        historyTextArea.append("New game started\n");
+	    }
+	}	
 
 	@Override
 	public int[] getPlayerPositions() {

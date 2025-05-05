@@ -12,4 +12,6 @@ public interface IGameModel {
 	int[] getPlayerPositions();
 
 	boolean checkWinner(int playerIndex);
+	
+	void reset();
 }

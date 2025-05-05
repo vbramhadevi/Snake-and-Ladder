@@ -6,7 +6,7 @@ public class SnakeAndLadderGame {
 			IBoardModel boardModel = new BoardModel();
 			IBoardView boardView = new BoardView(boardModel);
 			IGameModel gameModel = new GameModel(boardModel);
-			IGameController controller = new GameController(gameModel, null, boardView);
+			IGameController controller = new GameController(gameModel, null, boardView, boardModel);
 			IGameView gameView = new GameView(boardView, controller);
 			controller.setGameView(gameView);
 			gameView.addRollDiceListener(e -> controller.handleRollDice());

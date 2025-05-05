@@ -69,4 +69,13 @@ public class GameModel implements IGameModel {
 	public boolean checkWinner(int playerIndex) {
 		return players[playerIndex].getPosition() == 100;
 	}
+	
+	@Override
+	public void reset() {
+	    players = new Player[] { new Player(), new Player() };
+	    currentPlayerIndex = 0;
+	    lastRoll = 0;
+	    snakeEncountered = false;
+	    ladderEncountered = false;
+	}
 }

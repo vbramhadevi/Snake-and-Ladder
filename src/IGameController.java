@@ -4,6 +4,10 @@ public interface IGameController {
 	void toggleSound();
 
 	void toggleTheme();
+	
+	void restartGame();
+	
+	void newGame();
 
 	void setGameView(IGameView gameView);
 

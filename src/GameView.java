@@ -13,6 +13,8 @@ public class GameView implements IGameView {
 	private JLabel statusLabel;
 	private JLabel diceLabel;
 	private JButton rollDiceButton;
+	private JButton restartButton;
+	private JButton newGameButton;
 	private JLabel soundIconLabel;
 	private JLabel themeIconLabel;
 	private JLabel player1Label;
@@ -41,11 +43,15 @@ public class GameView implements IGameView {
 		diceLabel.setFont(new Font("Dialog", Font.PLAIN, 36));
 
 		rollDiceButton = new JButton("🎲 Roll Dice");
+		restartButton = new JButton("🔄 Restart");
+		newGameButton = new JButton("🆕 New Game");
 
-		controlPanel = new JPanel(new GridLayout(1, 3));
+		controlPanel = new JPanel(new GridLayout(1, 5));
 		controlPanel.add(statusLabel);
 		controlPanel.add(diceLabel);
 		controlPanel.add(rollDiceButton);
+		controlPanel.add(restartButton);
+		controlPanel.add(newGameButton);
 
 		// Board
 		frame.add(boardView.getBoardPanel(), BorderLayout.WEST);
@@ -117,6 +123,9 @@ public class GameView implements IGameView {
 		frame.add(controlPanel, BorderLayout.NORTH);
 
 		frame.setVisible(true);
+		
+		restartButton.addActionListener(e -> controller.restartGame());
+		newGameButton.addActionListener(e -> controller.newGame());		
 	}
 
 	@Override
