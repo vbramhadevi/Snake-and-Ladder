@@ -16,12 +16,12 @@ public class BoardModel implements IBoardModel {
 
 	private void initializeSnakesAndLadders() {
 		snakes.put(99, 54);
-		snakes.put(70, 55);
-		snakes.put(52, 42);
-		snakes.put(25, 2);
+		snakes.put(87, 42);
+		snakes.put(70, 36);
+		snakes.put(24, 2);
 		snakes.put(95, 72);
 
-		ladders.put(6, 25);
+		ladders.put(6, 28);
 		ladders.put(11, 40);
 		ladders.put(60, 85);
 		ladders.put(46, 90);

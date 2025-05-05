@@ -59,9 +59,9 @@ public class GameView implements IGameView {
 		playerInfoPanel = new JPanel(new GridLayout(1, 2));
 		playerInfoPanel.setPreferredSize(new Dimension(300, 50));
 		player1Label = new JLabel("<html>P1: <font color=\"blue\">🚶</font> on 1</html>", SwingConstants.CENTER);
-		player1Label.setFont(new Font("Arial", Font.PLAIN, 14));
+		player1Label.setFont(new Font("Arial", Font.PLAIN, 25));
 		player2Label = new JLabel("<html>P2: <font color=\"red\">🚶</font> on 1</html>", SwingConstants.CENTER);
-		player2Label.setFont(new Font("Arial", Font.PLAIN, 14));
+		player2Label.setFont(new Font("Arial", Font.PLAIN, 25));
 		playerInfoPanel.add(player1Label);
 		playerInfoPanel.add(player2Label);
 		gbc.gridx = 0;

@@ -6,7 +6,7 @@ public class BoardView implements IBoardView {
 	private BoardRenderer renderer;
 	private IBoardModel boardModel;
 	private static final Font DEFAULT_FONT = new Font("Dialog", Font.PLAIN, 12);
-	private static final Font PLAYER_FONT = new Font("Dialog", Font.PLAIN, 16);
+	private static final Font PLAYER_FONT = new Font("Dialog", Font.PLAIN, 26);
 
 	public BoardView(IBoardModel boardModel) {
 		this.boardModel = boardModel;
