@@ -68,7 +68,7 @@ public class BoardRenderer extends JPanel {
 	    int segments = 10;
 	    double dx = (to.x - from.x) / (double) segments;
 	    double dy = (to.y - from.y) / (double) segments;
-	    int amplitude = 10; // Controls the wave height
+	    int amplitude = 10;
 
 	    GeneralPath path = new GeneralPath();
 	    path.moveTo(from.x, from.y);

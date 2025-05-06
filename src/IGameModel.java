@@ -14,4 +14,6 @@ public interface IGameModel {
 	boolean checkWinner(int playerIndex);
 	
 	void reset();
+
+	boolean isComputerTurn();
 }

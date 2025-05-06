@@ -65,9 +65,9 @@ public class GameView implements IGameView {
 		playerInfoPanel = new JPanel(new GridLayout(1, 2));
 		playerInfoPanel.setPreferredSize(new Dimension(300, 50));
 		player1Label = new JLabel("<html>P1: <font color=\"blue\">🚶</font> on 1</html>", SwingConstants.CENTER);
-		player1Label.setFont(new Font("Arial", Font.PLAIN, 25));
+		player1Label.setFont(new Font("Arial", Font.PLAIN, 20));
 		player2Label = new JLabel("<html>P2: <font color=\"red\">🚶</font> on 1</html>", SwingConstants.CENTER);
-		player2Label.setFont(new Font("Arial", Font.PLAIN, 25));
+		player2Label.setFont(new Font("Arial", Font.PLAIN, 20));
 		playerInfoPanel.add(player1Label);
 		playerInfoPanel.add(player2Label);
 		gbc.gridx = 0;
@@ -123,9 +123,9 @@ public class GameView implements IGameView {
 		frame.add(controlPanel, BorderLayout.NORTH);
 
 		frame.setVisible(true);
-		
+
 		restartButton.addActionListener(e -> controller.restartGame());
-		newGameButton.addActionListener(e -> controller.newGame());		
+		newGameButton.addActionListener(e -> controller.newGame());
 	}
 
 	@Override
@@ -216,6 +216,10 @@ public class GameView implements IGameView {
 			diceLabel.setForeground(fgColor);
 			rollDiceButton.setForeground(fgColor);
 			rollDiceButton.setBackground(darkMode ? Color.DARK_GRAY : UIManager.getColor("Button.background"));
+			restartButton.setForeground(fgColor);
+			restartButton.setBackground(darkMode ? Color.DARK_GRAY : UIManager.getColor("Button.background"));
+			newGameButton.setForeground(fgColor);
+			newGameButton.setBackground(darkMode ? Color.DARK_GRAY : UIManager.getColor("Button.background"));
 
 			player1Label.setForeground(fgColor);
 			player2Label.setForeground(fgColor);
@@ -255,6 +259,10 @@ public class GameView implements IGameView {
 
 	public JTextArea getHistoryTextArea() {
 		return historyTextArea;
+	}
+
+	public void close() {
+		frame.dispose();
 	}
 
 	private Color interpolateColor(Color start, Color end, float ratio) {

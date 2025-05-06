@@ -10,8 +10,15 @@ public class GameModel implements IGameModel {
 	private final IBoardModel boardModel;
 	private final Random rand;
 
-	public GameModel(IBoardModel boardModel) {
+	public enum GameMode {
+		HUMAN_VS_HUMAN, HUMAN_VS_COMPUTER
+	}
+
+	private final GameMode gameMode;
+
+	public GameModel(IBoardModel boardModel, GameMode gameMode) {
 		this.boardModel = boardModel;
+		this.gameMode = gameMode;
 		this.players = new Player[] { new Player(), new Player() };
 		this.currentPlayerIndex = 0;
 		this.rand = new Random();
@@ -69,7 +76,7 @@ public class GameModel implements IGameModel {
 	public boolean checkWinner(int playerIndex) {
 		return players[playerIndex].getPosition() == 100;
 	}
-	
+
 	@Override
 	public void reset() {
 	    players = new Player[] { new Player(), new Player() };
@@ -77,5 +84,10 @@ public class GameModel implements IGameModel {
 	    lastRoll = 0;
 	    snakeEncountered = false;
 	    ladderEncountered = false;
+	}
+
+	@Override
+	public boolean isComputerTurn() {
+		return gameMode == GameMode.HUMAN_VS_COMPUTER && currentPlayerIndex == 1;
 	}
 }
